@@ -1,0 +1,9 @@
+[*.{js,ts,json,html,css}]
+end_of_line = lf
+
+module.exports = {
+  rules: {
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+  },
+};

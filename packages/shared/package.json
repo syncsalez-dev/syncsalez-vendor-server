@@ -1,0 +1,11 @@
+{
+  "name": "@syncsalez-vendor-server/shared",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^4.5.0"
+  }
+}

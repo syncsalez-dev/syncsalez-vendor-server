@@ -1,0 +1,30 @@
+# version: '3.8'
+# services:
+#   nats:
+#     image: nats:latest
+#     ports:
+#       - "4222:4222"
+#       - "8222:8222" # Monitoring (optional)
+#     command: "--jetstream" # Enable JetStream for persistence (optional)
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - nats
+    environment:
+      - NODE_ENV=production
+      - NATS_SERVER=nats://nats:4222
+
+  nats:
+    image: nats:latest
+    ports:
+      - '4222:4222'
+    restart: always
+    container_name: nats
+    expose:
+      - '4222'

@@ -1,0 +1,27 @@
+{
+  "name": "@syncsalez-vendor/store",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.js"
+    },
+    "./auth.module": {
+      "import": "./dist/auth.module.js",
+      "require": "./dist/auth.module.js"
+    }
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.1",
+    "@prisma/client": "^6.4.1",
+    "prisma": "^6.4.1"
+  },
+  "scripts": {
+    "start": "nest start ",
+    "build": "nest build && tsc && pnpx prisma generate --schema=./schema.prisma",
+    "migrate-pg": "npx prisma migrate dev --name add-auth-model",
+    "studio-pg": "npx prisma studio"
+  }
+}

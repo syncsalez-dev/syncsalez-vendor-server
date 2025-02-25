@@ -1,0 +1,18 @@
+{
+  "extends":"../../../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "outDir": "./dist", // The compiled JS files should go to 'dist' folder inside 'auth'
+    "rootDir": "./src" // Ensure that we are compiling 'src' files
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

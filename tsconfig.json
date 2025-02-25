@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    // "target": "ES2021",
+    "target": "ES6",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@syncsalez-vendor-server/shared/*": ["packages/shared/src/*"],
+      "@syncsalez-vendor-server/Shared/Formatter": [
+        "packages/shared/src/utils/formatters.ts"
+      ],
+      "@nestjs/common": ["node_modules/@nestjs/common"]
+    }
+  },
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "tsconfig.build.json",
+    "node_modules/.prisma/client",
+    "eslint.config.mjs"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unsafe-call": "off", // Disable unsafe call check
+    "@typescript-eslint/no-unsafe-member-access": "off", // Disable unsafe member access check
+    "@typescript-eslint/no-unsafe-assignment": "off", // Disable unsafe assignment check
+    "@typescript-eslint/no-unsafe-return": "off" // Disable unsafe return check
+  },
+  "exclude": ["node_modules", "dist"]
+}

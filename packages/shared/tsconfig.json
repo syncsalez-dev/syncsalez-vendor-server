@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.json", // This extends from the root tsconfig
+  "compilerOptions": {
+    "outDir": "../../dist" // Adjust the output directory to be relative to the root
+  },
+  "include": ["src/**/*"] // Include all source files from this package
+}
