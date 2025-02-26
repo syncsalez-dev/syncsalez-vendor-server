@@ -1,11 +1,10 @@
-// apps/auth/auth.module.ts
 import { Module } from '@nestjs/common';
 import { StoreController } from './store.controller';
 import { StoreService } from './store.service';
-// import { PrismaService } from './prisma/prisma.service'; // Import PrismaService here
+import { PrismaService } from 'src/prisma.service';
 
 @Module({
   controllers: [StoreController],
-  providers: [StoreService], // Provide PrismaService here
+  providers: [StoreService, PrismaService],
 })
 export class StoreModule {}

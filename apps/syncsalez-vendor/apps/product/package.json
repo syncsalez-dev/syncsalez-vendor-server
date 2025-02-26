@@ -1,0 +1,41 @@
+{
+  "name": "@syncsalez-vendor/product",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.js"
+    },
+    "./auth.module": {
+      "import": "./dist/product.module.js",
+      "require": "./dist/product.module.js"
+    }
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.10",
+    "@nestjs/core": "^11.0.10",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/microservices": "^11.0.10",
+    "@nestjs/platform-express": "^11.0.1",
+    "@prisma/client": "^6.4.1",
+    "bcryptjs": "^3.0.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "nats": "^2.29.2",
+    "pg": "^8.13.3",
+    "prisma": "^6.4.1",
+    "rxjs": "^7.8.2"
+  },
+  "scripts": {
+    "start": "nest start",
+    "build": "nest build && tsc && pnpx prisma generate --schema=./schema.prisma",
+    "migrate-pg": "npx prisma migrate dev --name add-store-model",
+    "studio-pg": "npx prisma studio"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "eslint-config-prisma": "^0.6.0"
+  }
+}
