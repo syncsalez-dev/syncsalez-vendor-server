@@ -1,8 +1,4 @@
 "use strict";
-/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-// // apps/auth/auth.controller.ts
-// import { Controller, Post, Body, Get } from '@nestjs/common';
-// import { AuthService } from './auth.service';
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,65 +13,39 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
-// @Controller('auth')
-// export class AuthController {
-//   constructor(private authService: AuthService) {}
-//   @Get()
-//   getHello(): string {
-//     return this.authService.getHello();
-//   }
-//   @Post('login')
-//   async login(@Body() body: { email: string; password: string }) {
-//     const user = await this.authService.findUserByEmail(body.email);
-//     if (!user) {
-//       throw new Error('User not found');
-//     }
-//     // Authentication logic (password check, etc.)
-//     return user;
-//   }
-//   @Post('register')
-//   async register(@Body() body: { email: string; password: string }) {
-//     const newUser = await this.authService.createUser(
-//       body.email,
-//       body.password,
-//     );
-//     return newUser;
-//   }
-// }
-// src/auth/auth.controller.ts
 const common_1 = require("@nestjs/common");
-const auth_service_1 = require("./auth.service"); // Import your service
+const microservices_1 = require("@nestjs/microservices");
+const auth_service_1 = require("./auth.service");
+const auth_dto_1 = require("./dto/auth.dto");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    // POST /auth/create-user
-    async createUser(email, password) {
-        return this.authService.createUser(email, password);
+    async login(loginDto) {
+        return this.authService.login(loginDto);
     }
-    // GET /auth/find-user-by-email/:email
-    async findUserByEmail(email) {
-        return this.authService.findUserByEmail(email);
+    async register(registerDto) {
+        return this.authService.register(registerDto);
     }
 };
 exports.AuthController = AuthController;
 __decorate([
-    (0, common_1.Post)('create-user'),
-    __param(0, (0, common_1.Body)('email')),
-    __param(1, (0, common_1.Body)('password')),
+    (0, microservices_1.EventPattern)('auth.login'),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe()),
+    __param(0, (0, microservices_1.Payload)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:paramtypes", [auth_dto_1.LoginDto]),
     __metadata("design:returntype", Promise)
-], AuthController.prototype, "createUser", null);
+], AuthController.prototype, "login", null);
 __decorate([
-    (0, common_1.Get)('find-user-by-email/:email'),
-    __param(0, (0, common_1.Param)('email')),
+    (0, microservices_1.EventPattern)('auth.register'),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe()),
+    __param(0, (0, microservices_1.Payload)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [auth_dto_1.RegisterDto]),
     __metadata("design:returntype", Promise)
-], AuthController.prototype, "findUserByEmail", null);
+], AuthController.prototype, "register", null);
 exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)('auth') // Define base route
-    ,
+    (0, common_1.Controller)(),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);

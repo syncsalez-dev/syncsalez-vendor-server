@@ -1,16 +1,17 @@
-// prisma/schema.prisma
-
-datasource db {
-  provider = "postgresql" // Adjust to your DB type
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
-model UserModel {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  phonenumber String
+  createdAt DateTime @default(now())
 }
