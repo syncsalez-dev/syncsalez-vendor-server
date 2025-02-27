@@ -10,7 +10,11 @@ exports.StoreModule = void 0;
 const common_1 = require("@nestjs/common");
 const store_controller_1 = require("./store.controller");
 const store_service_1 = require("./store.service");
+<<<<<<< HEAD
 const prisma_service_1 = require("./prisma.service");
+=======
+const prisma_service_1 = require("../prisma/prisma.service");
+>>>>>>> 3da130db1ff9c39f3616c7b16fc8baf53748443c
 let StoreModule = class StoreModule {
 };
 exports.StoreModule = StoreModule;

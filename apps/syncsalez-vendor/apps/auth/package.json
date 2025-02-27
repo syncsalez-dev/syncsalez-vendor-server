@@ -32,7 +32,8 @@
     "start": "nest start",
     "build": "nest build && tsc && pnpx prisma generate",
     "migrate-pg": "npx prisma migrate dev --name add-auth-model",
-    "studio-pg": "npx prisma studio"
+    "studio-pg": "npx prisma studio",
+    "run": "run"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

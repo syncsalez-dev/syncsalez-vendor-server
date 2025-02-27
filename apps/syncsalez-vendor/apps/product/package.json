@@ -30,7 +30,11 @@
   },
   "scripts": {
     "start": "nest start",
+<<<<<<< HEAD
     "build": "nest build && tsc && pnpx prisma generate",
+=======
+    "build": "nest build && tsc && pnpx prisma generate --schema=./schema.prisma",
+>>>>>>> 3da130db1ff9c39f3616c7b16fc8baf53748443c
     "migrate-pg": "npx prisma migrate dev --name add-store-model",
     "studio-pg": "npx prisma studio"
   },

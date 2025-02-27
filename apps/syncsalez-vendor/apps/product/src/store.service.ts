@@ -1,5 +1,9 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
+<<<<<<< HEAD
 import { PrismaService } from './prisma.service';
+=======
+import { PrismaService } from '../prisma/prisma.service';
+>>>>>>> 3da130db1ff9c39f3616c7b16fc8baf53748443c
 import { CreateStoreDto } from './dto/create-store.dto';
 import { StoreDto } from './dto/store.dto';
 import { VerifyStoreDto } from './dto/store.dto';

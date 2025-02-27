@@ -12,7 +12,11 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "outDir": "./dist", // The compiled JS files should go to 'dist' folder inside 'auth'
+<<<<<<< HEAD
     "rootDir": "./src" //Source files are in the 'src' folder
+=======
+    // "rootDir": "./src"  Source files are in the 'src' folder
+>>>>>>> 3da130db1ff9c39f3616c7b16fc8baf53748443c
   },
   "include": [
     "src/**/*", // Include all files inside the 'src' folder
